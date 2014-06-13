@@ -49,16 +49,22 @@ window.onload = function() {
 
         color();
 
-        var xDiff = xD - e.touches[0].clientX,
-            yDiff = yD - e.touches[0].clientY;
+        var xDf = xD - e.touches[0].clientX,
+            yDf = yD - e.touches[0].clientY;
 
-        if ( Math.abs(xDiff) > Math.abs(yDiff) ) {
-            if ( xDiff > 0 ) x--;
-            else x++;
+        if ( Math.abs(xDf) > Math.abs(yDf) ) {
+            if ( xDf > 0 ) x++;
+            else x--;
         } else {
-            if ( yDiff > 0 ) y++;
-            else y--;
+            if ( yDf > 0 ) y--;
+            else y++;
         }
+
+        if ( x > 23 ) x = 0;
+        else if ( x < 0 ) x = 23;
+
+        if ( y > 16 ) y = 0;
+        else if ( y < 0 ) y = 16;
 
         s(x,y);
 
